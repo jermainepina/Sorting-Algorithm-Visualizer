@@ -126,7 +126,9 @@ def main():
     else:
         raise Exception("Incorrect letter provided")
     
-    # Initialize figure, bar plot, axes/axes limits, and title 
+    # Initialize figure, bar plot, axes/axes limits, title, color(s)
+    # NOTE: Each bar represents an element in the list, with the X-axis representing its current index, and
+    # the Y-axis representing the integer value of the element.
     plt.style.use('seaborn-v0_8-white')
     gradient_cmap = colors.LinearSegmentedColormap.from_list('custom_gradient', ['#6CB8E6', '#053958'])
     fig, ax = plt.subplots()
@@ -141,8 +143,8 @@ def main():
     
     # The "operations" variable represents the number of operations so far
     #   * The update() function increments operations[] and passes it to text label
-    #   * Initialized to a list of one element so incrementation of variable is
-    #     reflected outside the function (lists are passed by reference)
+    #   * Initialized to a list of one element so incrementation of variable is reflected outside the function 
+    #     (lists are passed by reference).
     operations = [0]
     def update(a, rects):
         for rect, val in zip(rects, a):
@@ -151,7 +153,7 @@ def main():
         text.set_text(f"Operations: {operations[0]}")
     
     # Function to animate sorting algorithm 
-    # If a faster/slower animation speed is desired, adjust the "interval" variable
+    # If a faster/slower animation speed is desired, adjust the "interval" variable.
     ani = animation.FuncAnimation(fig, func=update, fargs=(rects,), frames=generator, 
                                   interval=1, cache_frame_data=False, repeat=False)
 
