@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import colors
 import random
-from PIL import Image
 
 # Bubble sort algorithm
 def bubbleSort(a):
